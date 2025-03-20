@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: customer-service
+    port: 8081
+  data:
+    mongodb:
+      user: test
+      password: test
+      uri: mongodb://localhost:27017/customer-service
