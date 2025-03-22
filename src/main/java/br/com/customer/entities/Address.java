@@ -1,10 +1,22 @@
 package br.com.customer.entities;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-@Document(collection = "addresses")
+import java.util.UUID;
+
+//@Document(collection = "addresses")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Address {
 
+    @Id
+    private UUID id;
     private String street;
     private String number;
     private String complement;
