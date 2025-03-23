@@ -1,6 +1,6 @@
 package br.com.customer.responses;
 
-import br.com.customer.entities.Address;
+import br.com.customer.entities.TO.AddressTO;
 import br.com.customer.entities.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,10 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +22,7 @@ public class CustomerResponse {
     private String phone;
     private String email;
     private Double earnings;
-    private Address address;
+    private AddressTO address;
     private Boolean active;
 
     public static CustomerResponse fromEntity(@NonNull Customer customer) {
@@ -36,6 +33,7 @@ public class CustomerResponse {
                 .phone(customer.getPhone())
                 .email(customer.getEmail())
                 .earnings(customer.getEarnings())
+                .address(customer.getAddress())
                 .active(customer.getActive())
                 .build();
     }

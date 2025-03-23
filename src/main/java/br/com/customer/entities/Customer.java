@@ -1,14 +1,13 @@
 package br.com.customer.entities;
 
+import br.com.customer.entities.TO.AddressTO;
 import br.com.customer.exceptions.CustomerRequiredFieldException;
-import com.mongodb.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Column;
@@ -35,7 +34,7 @@ public class Customer {
     @Indexed(unique = true)
     private String email;
     private Double earnings;
-    private Address address;
+    private AddressTO address;
     private Boolean active;
 
     public void validate() {

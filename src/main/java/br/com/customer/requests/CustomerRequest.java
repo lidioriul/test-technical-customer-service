@@ -1,6 +1,7 @@
 package br.com.customer.requests;
 
 import br.com.customer.entities.Customer;
+import br.com.customer.entities.TO.AddressTO;
 import lombok.Data;
 
 @Data
@@ -12,7 +13,7 @@ public class CustomerRequest {
     private String phone;
     private String email;
     private Double earnings;
-    private AddressRequest address;
+    private AddressTO address;
     private Boolean active;
 
     public Customer toEntity() {
@@ -24,18 +25,9 @@ public class CustomerRequest {
                 .email(email)
                 .earnings(earnings)
                 .active(active)
-//                .address(address.toEntity())
+                .address(address)
                 .build();
         customer.validate();
         return customer;
     }
-
-    public void toEntity(Customer customer) {
-        customer.setName(name);
-        customer.setEmail(email);
-        customer.setPhone(phone);
-        customer.setEarnings(earnings);
-//        customer.setAddress(address.toEntity());
-    }
-
 }

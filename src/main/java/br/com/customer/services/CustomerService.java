@@ -55,10 +55,12 @@ public class CustomerService {
     }
 
     public CustomerResponse findByName(String name) {
-        return customerRepository.findByName(name).map(CustomerResponse::fromEntity).orElseThrow(CustomerNotFoundException::new);
+        return customerRepository.findByName(name).map(CustomerResponse::fromEntity)
+                .orElseThrow(() -> new CustomerNotFoundException(String.format("Customer %s not found.", name)));
     }
 
     public CustomerResponse findByDocument(@NonNull String document) {
-        return customerRepository.findByDocument(document).map(CustomerResponse::fromEntity).orElseThrow(CustomerNotFoundException::new);
+        return customerRepository.findByDocument(document).map(CustomerResponse::fromEntity)
+                .orElseThrow(() -> new CustomerNotFoundException(String.format("Customer %s not found.", document)));
     }
 }

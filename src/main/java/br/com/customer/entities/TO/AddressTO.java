@@ -1,22 +1,16 @@
-package br.com.customer.entities;
+package br.com.customer.entities.TO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
-import java.util.UUID;
-
-//@Document(collection = "addresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Address {
+public class AddressTO {
 
-    @Id
-    private UUID id;
     private String street;
     private String number;
     private String complement;
@@ -24,4 +18,5 @@ public class Address {
     private String city;
     private String state;
     private String country;
+
 }
